@@ -1,5 +1,5 @@
 import React , {useState} from 'react';
-import { StyleSheet, TextInput, View, Button} from 'react-native'; 
+import { StyleSheet, TextInput, View, Button, TouchableHighlight, Text} from 'react-native'; 
 
 export default function addTask({submitTask}){
 
@@ -19,11 +19,13 @@ export default function addTask({submitTask}){
             onChangeText={(val) => changeHandler(val)}
             
             />
-            <Button 
-            style = {styles.addbutton} 
-            onPress={() => submitTask(text)} 
-            title='add task' 
-            />
+
+            <TouchableHighlight 
+            onPress={() => submitTask(text)}
+            style = {styles.Button}>
+                <Text style={styles.buttonText}>ADD TASK</Text>
+            </TouchableHighlight>
+
         </View>
     )
 
@@ -39,6 +41,18 @@ const styles = StyleSheet.create({
         paddingVertical: 5,
         borderBottomWidth: 1,
         borderBottomColor: 'gray'
+    },
+    Button:{
+        height: 50,
+        marginHorizontal: 70,
+        borderRadius: 10,
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: '#4287f5',
+        
+    },
+    buttonText:{
+        color: 'white',
     },
 
 
